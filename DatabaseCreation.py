@@ -1,5 +1,5 @@
 import sqlite3
-
+#testing
 # Connect to SQLite database (or create it if it doesn't exist)
 conn = sqlite3.connect("school.db")
 cursor = conn.cursor()
