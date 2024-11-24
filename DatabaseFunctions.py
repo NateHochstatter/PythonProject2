@@ -17,13 +17,24 @@ def showStudentName(name):
         #Displays a student based on their name
         cursor.execute("SELECT * FROM Student WHERE name = ?", (name,))
 
-        #printPage("StudentRecord.txt")
+        printPage("StudentRecord.txt")
         rows = cursor.fetchall()
 
         if rows:
             for i in rows:
                 print(i)
             print()
+
+def showStudentID(ID):
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Displays a student based on their ID
+        cursor.execute("SELECT * FROM Student WHERE id = ?", (ID,))
+
+        printPage("StudentRecord.txt")
+        student = cursor.fetchone()
+        print(student)
         
 def deleteStudent(ID):
 
