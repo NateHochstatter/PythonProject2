@@ -15,13 +15,13 @@ cursor.execute("CREATE TABLE IF NOT EXISTS User (" +
 
 # Create Student table
 cursor.execute("CREATE TABLE IF NOT EXISTS Student (" +
-               "id VARCHAR(9) NOT NULL, name VARCHAR(32) NOT NULL, age INTEGER NOT NULL, " +
-               "gender VARCHAR(1), major VARCHAR(32), phone VARCHAR(32), UNIQUE (id), primary key (id));")
+               "id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(32) NOT NULL, age INTEGER NOT NULL, " +
+               "gender VARCHAR(1), major VARCHAR(32), phone VARCHAR(32));")
 
 # Create Score table
 cursor.execute("CREATE TABLE IF NOT EXISTS Score (" +
-               "id VARCHAR(9) NOT NULL, name VARCHAR(32) NOT NULL, CS_1030 INTEGER," +
-               " CS_1100 INTEGER, CS_2030 INTEGER, UNIQUE (id), primary key (id));")
+               "id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(32) NOT NULL, CS_1030 INTEGER," +
+               " CS_1100 INTEGER, CS_2030 INTEGER);")
 
 # Insert data into User table
 cursor.execute("INSERT INTO User (username, password) VALUES " +
@@ -30,17 +30,24 @@ cursor.execute("INSERT INTO User (username, password) VALUES " +
 
 # Insert data into Student table
 cursor.execute(" INSERT INTO Student (id, name, age, gender, major, phone) VALUES " +
-               "('700300001', 'Emily White', 20, 'F', 'CS', '816-111-1111'), " +
-               "('700300002', 'Bob Builder', 21, 'M', 'CYBR', '816-222-2222'), " +
-               "('700300003', 'Jason James', 22, 'M', 'SE', '816-333-3333');")
+               "(700300001, 'Emily White', 20, 'F', 'CS', '816-111-1111')")
 
 # Insert data into Score table
 cursor.execute("INSERT INTO Score (id, name, CS_1030, CS_1100, CS_2030) VALUES " +
-               "('700300001', 'Emily White', 85, 90, 88), ('700300002', 'Bob Builder', 78, 82, 80), " +
-               "('700300003', 'Jason James', 92, 95, 94);")
+               "(700300001, 'Emily White', 85, 90, 88)")
 
 # Commit changes and close the connection
 conn.commit()
+
+cursor.execute(" INSERT INTO Student (name, age, gender, major, phone) VALUES " +
+               "('Bob Builder', 21, 'M', 'CYBR', '816-222-2222'), " +
+               "('Jason James', 22, 'M', 'SE', '816-333-3333');")
+
+cursor.execute("INSERT INTO Score (name, CS_1030, CS_1100, CS_2030) VALUES " +
+               "('Bob Builder', 78, 82, 80), ('Jason James', 92, 95, 94);")
+
+conn.commit()
+
 
 # Select and display all records from User table
 print("User Table:")
