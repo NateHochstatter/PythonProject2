@@ -1,6 +1,13 @@
 
 # Function for checking the username
 def checkUsername(username):
+    # While loop to check that there are no digits
+    i = 0
+    while i < len(username):
+        if username[i].isdigit():
+            return False
+        i += 1
+
     #if statement to check if the username length is valid and its first letter is uppercase
     if 3 <= len(username) <= 6 and username[0].isupper():
         return True
