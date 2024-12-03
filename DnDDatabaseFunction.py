@@ -14,7 +14,7 @@ def showAllCharacters():
         print(f"{'ID':<5} {'CharId':<5} {'Name':<5} {'Class':<5} {'Level':<5} {'Race':<5} {'Campaign':<5}")
 
         #Iterate through every student
-        for characters in characters:
+        for character in characters:
 
             #Unpack student into multiple variables
             stud_id, char_id, name, clas, level, race, campaign = character
