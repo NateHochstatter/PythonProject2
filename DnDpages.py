@@ -78,8 +78,8 @@ def addCharacterPage():
 
     if finalcheck:
         newCharacter = {
-            "ID": Id,
             "CharID": CharId,
+            "ID": Id,
             "Name": Name,
             "Class": Class,
             "Level": Level,
@@ -138,7 +138,7 @@ def modifyCharacterPage():
     Id = str(input("Please enter the student ID: "))
     greatCheck = True #check for if there is an issue with the id which means it should stop
     # trying to modify something
-    printPage("StudentRecord.txt")
+    printPage("DndRecord.txt")
     if checkValID(Id):
         if IDExists(Id):
             displayCharacter(Id)
