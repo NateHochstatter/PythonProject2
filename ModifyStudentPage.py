@@ -4,7 +4,7 @@ from allChecks import *
 from DatabaseFunctions import *
 
 def modifyStudentPrompt():
-
+printPage("Modify.txt")
     try:
         ID = input("Enter Student ID to modify: ")
 
