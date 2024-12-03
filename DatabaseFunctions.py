@@ -75,7 +75,15 @@ def showStudentID(ID):
         
         #Display the relevant student information
         print(f"{stud_id:<10} {name:<16} {phone:<15} {major:<5}")
-        
+
+def modifyStudent(ID, age, major, phone):
+    #Connects to database
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Inserts modified student information into the database
+        cursor.execute("UPDATE Student SET age = ?, major = ?, phone = ? WHERE id = ?",
+                       (age, major, phone, ID))
 def deleteStudent(ID):
 
     #Connects to the database
