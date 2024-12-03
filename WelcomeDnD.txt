@@ -3,9 +3,9 @@
                 to the Character Management System
 
 		              ♦ 1. Add Character
-		              ♦ 2. Show Character
+		              ♦ 2. Delete Character
 		              ♦ 3. Modify Character
-		              ♦ 4. Delete Character
+		              ♦ 4. Show Character
 		              ♦ 5. Display all characters
 		              ♦ 6. Return to the Previous Menu
 
