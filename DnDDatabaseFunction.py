@@ -11,7 +11,7 @@ def showAllCharacters():
 
         #Header
         printPage("DndRecord.txt")
-        print(f"{'ID':<10} {'CharId':<5} {'Name':<16} {'Class':<15} {'Level':<5} {'Race':<5} {'Campaign':<5}")
+        print(f"{'ID':<5} {'CharId':<5} {'Name':<5} {'Class':<5} {'Level':<5} {'Race':<5} {'Campaign':<5}")
 
         #Iterate through every student
         for characters in characters:
