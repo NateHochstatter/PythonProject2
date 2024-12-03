@@ -1,3 +1,8 @@
+#Pages for all of the database functions
+
+from DatabaseFunctions import *
+from allChecks import *
+
 def printPage(filename):
     inputFile = open(filename, 'r') #Get the file text
     print(inputFile.read()) #Print the file text
