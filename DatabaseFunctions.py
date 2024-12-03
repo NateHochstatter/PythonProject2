@@ -129,9 +129,8 @@ def deleteStudentName(name):
         cursor = conn.cursor()
 
         #Deletes student information from the database
-        cursor.execte("DELETE FROM Student WHERE id = ?", (name,))
+        cursor.execute("DELETE FROM Student WHERE name = ?", (name,))
         conn.commit()
-        conn.close()
 
 #Deletes students by ID
 def deleteStudentID(ID):
@@ -143,7 +142,6 @@ def deleteStudentID(ID):
         #Deletes student information from the database
         cursor.execute("DELETE FROM Student WHERE id = ?", (ID,))
         conn.commit()
-        conn.close()
 
 #function for showing a students scores
 def showScore(name):
