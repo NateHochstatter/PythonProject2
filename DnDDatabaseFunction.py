@@ -17,7 +17,7 @@ def showAllCharacters():
         for characters in characters:
 
             #Unpack student into multiple variables
-            stud_id, char_id, name, clas, level, race, campaign = student
+            stud_id, char_id, name, clas, level, race, campaign = character
 
             #Display the relevant student information
             print(f"{stud_id:<10} {char_id:<5} {name:<5} {clas:<5} {level:<5} {race:<5} {campaign:<5}")
