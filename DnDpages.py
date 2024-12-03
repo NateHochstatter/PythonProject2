@@ -1,5 +1,5 @@
 from JsonStuffDnD import *
-from checkAll import *
+from allChecks import *
 
 def printPage(filename):
     inputFile = open(filename, 'r') #Get the file text
