@@ -11,14 +11,14 @@ def showAllCharacters():
 
         #Header
         printPage("DndRecord.txt")
-        print(f"{'ID':<5} {'CharId':<5} {'Name':<5} {'Class':<5} {'Level':<5} {'Race':<5} {'Campaign':<5}")
+        print(f"{'CharId':<5} {'ID':<5} {'Name':<5} {'Class':<5} {'Level':<5} {'Race':<5} {'Campaign':<5}")
 
         #Iterate through every student
         for character in characters:
 
             #Unpack student into multiple variables
-            stud_id, char_id, name, clas, level, race, campaign = character
+            char_id, stud, name, clas, level, race, campaign = character
 
             #Display the relevant student information
-            print(f"{stud_id:<10} {char_id:<5} {name:<5} {clas:<5} {level:<5} {race:<5} {campaign:<5}")
+            print(f"{char_id:<10} {stud_id:<5} {name:<5} {clas:<5} {level:<5} {race:<5} {campaign:<5}")
         print()
