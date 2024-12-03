@@ -1,4 +1,14 @@
 
+
+#Function for checking the ID
+def checkValID(Id):
+    id = str(Id)
+    #Check if the length of the ID is valid and that the ID begins with 700
+    if(len(id) == 9 and id[:4] == "7003"):
+        return True
+    else:
+        return False
+
 # Function for checking the username
 def checkUsername(username):
     # While loop to check that there are no digits
@@ -120,3 +130,28 @@ def checkGender(gender):
     else:
         return False
 
+# function for checking the level
+def checkLevel(level):
+    #if statement to check if the level is something between 1 and 20
+    if 0 < int(level) <= 20:
+        return True
+    else:
+        return False
+
+# function for checking the class
+def checkClass(classname):
+    #if statement to check if the class is correct
+    if classname in ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue',
+                     'Sorcerer', 'Warlock', 'Wizard']:
+        return True
+    else:
+        return False
+
+# function for checking the race
+def checkClass(classname):
+    #if statement to check if the class is correct
+    if classname in ['Human', 'Elf', 'Dwarf', 'Halfling', 'Dragonborn', 'Gnome', 'Tiefling', 'Orc', 'Half-Elf',
+                     'Half-Orc']:
+        return True
+    else:
+        return False

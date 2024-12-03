@@ -44,3 +44,9 @@ print(checkUsername("John")) #True
 print(checkUsername("john")) #first letter not upper
 print(checkUsername("Jo3hn")) #digit
 print(checkUsername("Johnassa")) #to long
+
+print("Id ")
+print(checkValID(700300001)) #True
+print(checkValID(700000001)) #wrong start
+print(checkValID(70030001)) #to short
+print(checkValID(700300011)) #True
