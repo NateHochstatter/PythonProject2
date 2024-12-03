@@ -1,14 +1,14 @@
 import sqlite3
 
-def addCharacter(CharId, Stud_Id, Name, Class, Level, Race, Campaign):
+def addCharacter(Stud_Id, Name, Class, Level, Race, Campaign):
 
     #Connects to the database
     with sqlite3.connect("Dnd.db") as conn:
         cursor = conn.cursor()
 
         #Inserts new student information into the database
-        cursor.execute("INSERT INTO Dnd (CharId, Stud_Id, Name, Class, Level, Race, Campaign) VALUES (?, ?, ?, ?, ?, ?)",
-                       (CharId, Stud_Id, Name, Class, Level, Race, Campaign))
+        cursor.execute("INSERT INTO Dnd (Stud_Id, Name, Class, Level, Race, Campaign) VALUES (?, ?, ?, ?, ?, ?)",
+                       (Stud_Id, Name, Class, Level, Race, Campaign))
 
 def showAllCharacters():
     with sqlite3.connect("Dnd.db") as conn:
