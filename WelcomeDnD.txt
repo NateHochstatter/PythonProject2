@@ -6,7 +6,7 @@
 		              ♦ 2. Show Character
 		              ♦ 3. Modify Character
 		              ♦ 4. Delete Character
-		              ♦ 5. Query Character
+		              ♦ 5. Display all characters
 		              ♦ 6. Return to the Previous Menu
 
 ============================================================
