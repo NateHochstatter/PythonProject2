@@ -126,14 +126,14 @@ def displayCharacterPage():
     printPage("CharacterRecord.txt") #print the record text
     if checkValID(Id): #if statements to ensure the id is both valid and existing
         if IDExists(Id):
-            displayCharacter(Id) #call the displayStudent function with the given id
+            displayCharacter(Id) #call the displayCharacter function with the given id
         else:
             print(f"\u274c The student Id {Id} does not exist") #error messages for if it is invalid or nonexistent
     else:
         print(f"\u274c The student Id {Id} is not valid")
 
 def modifyCharacterPage():
-    #starts off by basically doing the displayStudent function but with a key change of setting a
+    #starts off by basically doing the displayCharacter function but with a key change of setting a
     # check to false if there is an issue
     Id = str(input("Please enter the student ID: "))
     greatCheck = True #check for if there is an issue with the id which means it should stop
