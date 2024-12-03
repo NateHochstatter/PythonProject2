@@ -148,9 +148,9 @@ def checkClass(classname):
         return False
 
 # function for checking the race
-def checkClass(classname):
-    #if statement to check if the class is correct
-    if classname in ['Human', 'Elf', 'Dwarf', 'Halfling', 'Dragonborn', 'Gnome', 'Tiefling', 'Orc', 'Half-Elf',
+def checkRace(Racename):
+    #if statement to check if the race is correct
+    if Racename in ['Human', 'Elf', 'Dwarf', 'Halfling', 'Dragonborn', 'Gnome', 'Tiefling', 'Orc', 'Half-Elf',
                      'Half-Orc']:
         return True
     else:
