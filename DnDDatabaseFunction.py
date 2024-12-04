@@ -34,3 +34,28 @@ def showAllCharacters():
             #Display the relevant student information
             print(f"{char_id:<10} {stud_id:<5} {name:<5} {clas:<5} {level:<5} {race:<5} {campaign:<5}")
         print()
+
+def showCharacter(element, value):
+    conn = sqlite3.connect("Dnd.db")
+
+    cursor = conn.cursor()
+
+    if element == "name":
+        # Selects Character with a certain Id
+        cursor.execute("SELECT * FROM Dnd WHERE charId = ?", (int(value),))
+
+    students = cursor.fetchall()
+
+    #Header
+    printPage("DndRecord.txt")
+    print(f"{'CharId':<5} {'ID':<5} {'Name':<5} {'Class':<5} {'Level':<5} {'Race':<5} {'Campaign':<5}")
+
+    if characters:
+        # Iterate through every character
+        for character in characters:
+            # Unpack character into multiple variables
+            CharId, Id, Name, Class, Level, Race, Campaign = student
+
+            # Display the relevant student information
+            print(f"{CharId:<5} {Id:<11} {Name:<16} {Class:<5} {Level:<8} {Race:<8} {Campaign:<15}")
+    conn.close()
