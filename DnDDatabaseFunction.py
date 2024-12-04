@@ -9,6 +9,8 @@ def addCharacter(Stud_Id, Name, Class, Level, Race, Campaign):
         #Inserts new student information into the database
         cursor.execute("INSERT INTO Dnd (Stud_Id, Name, Class, Level, Race, Campaign) VALUES (?, ?, ?, ?, ?, ?)",
                        (Stud_Id, Name, Class, Level, Race, Campaign))
+    conn.commit()
+    conn.close()
 
 def showAllCharacters():
     with sqlite3.connect("Dnd.db") as conn:
