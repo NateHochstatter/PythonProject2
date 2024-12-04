@@ -58,7 +58,7 @@ cursor.execute("INSERT INTO Score (name, CS_1030, CS_1100, CS_2030) VALUES " +
                "('Bob Builder', 78, 82, 80), ('Jason James', 92, 95, 94);")
 
 # Insert data into Dnd table
-cursor.execute("INSERT INTO Dnd (studentId, name, class, race, level, campaign) VALUES " +
+cursor.execute("INSERT INTO Dnd (characterId, name, class, race, level, campaign) VALUES " +
                "(700300001, 'King Charles', 'Paladin', 'Human', '20', 'The Black Forest'), " +
                "(700300002, 'Queen Charles', 'Cleric', 'Human', '20', 'The Black Forest')")
 
