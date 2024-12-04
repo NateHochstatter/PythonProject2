@@ -91,35 +91,27 @@ def addCharacterPage():
 
 def deleteCharacterPage():
     printPage("DeleteCharacter.txt")
-    #Prompt the user to enter a student ID and CharID to delete
-    IDInput = input("Please enter a Student ID to choose from: ")
+    #Prompt the user to enter a CharID to delete
     CharID = input("Please enter a Character ID to choose from: ")
 
     #Checks to make sure that the ID exists
-    if IDExists(IDInput) == True:
-        if(CharIDExists(CharID)):
-            
-            #printPage("CharacterRecord.txt")
-            displayStudent(IDInput)
-    
-            #Verify that the user wants to delete the character
-            response = input("Are you sure you want to delete this character from the record? Y or N: ")
-    
-            #Yes
-            if response.lower() == "y":
-                deleteCharacter(CharID)
-                print(f"Character {CharID} has been deleted")
-            #No
-            elif response.lower() == "n":
-                print(f"Character {CharID} has not been deleted")
-            #Invalid responses
-            else:
-                print("INVALID RESPONSE")
+    if(CharIDExists(CharID)): 
+        #printPage("CharacterRecord.txt")
+         displayCharacter(IDInput)
+        #Verify that the user wants to delete the character
+        response = input("Are you sure you want to delete this character from the record? Y or N: ")
+        #Yes
+        if response.lower() == "y":
+            deleteCharacter(CharID)
+             print(f"Character {CharID} has been deleted")
+         #No
+        elif response.lower() == "n":
+            print(f"Character {CharID} has not been deleted")
+        #Invalid responses
         else:
-            print(f"\u274c The character Id {CharID} does not exist")
-    #ID does not exist
+            print("INVALID RESPONSE")
     else:
-        print(f"\u274c The student Id {IDInput} does not exist")
+            print(f"\u274c The character Id {CharID} does not exist")
 
 def displayCharacterPage():
     Id = str(input("Please enter the student ID: ")) #Get the id
