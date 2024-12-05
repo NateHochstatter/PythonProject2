@@ -198,12 +198,3 @@ def modifyCharacterPage():
             #otherwise call the function and say things went well
             modifyCharacter(Id, newName, newClass, newLevel, newRace, newCampaign)
             print("\u2714 Character record updated successfully")
-
-
-def CharIDExists(ID, filename="characterData.json"):
-    with open(filename, 'r') as file:
-        data = json.load(file)
-        for characters in data:
-            if character["ID"] == ID:
-                return True
-    return False 
