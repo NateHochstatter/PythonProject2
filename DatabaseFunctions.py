@@ -3,10 +3,12 @@ from Pages import *
 
 #Function to check if an element exists
 def exists(element, value):
-    conn = sqlite3.connect("school.db")
 
+    #connect to the database
+    conn = sqlite3.connect("school.db")
     cursor = conn.cursor()
 
+    #If statements for the elements you are looking for
     if element == "phone":
         cursor.execute("SELECT * FROM Student WHERE phone = ?", (value,))
     if element == "name":
@@ -21,6 +23,7 @@ def exists(element, value):
         cursor.execute("SELECT * FROM Dnd WHERE characterId = ?", (int(value),))
     students = cursor.fetchall()
 
+    #if statement to check the results.
     if students:
         conn.close()
         return True
