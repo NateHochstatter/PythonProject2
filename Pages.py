@@ -3,11 +3,6 @@
 from DatabaseFunctions import *
 from allChecks import *
 
-def printPage(filename):
-    inputFile = open(filename, 'r') #Get the file text
-    print(inputFile.read()) #Print the file text
-    inputFile.close() #Close the connection
-
 #Start page for the student menu
 def startPage():
     #If statement and while loop to keep the program running until they select the leave option and confirm
@@ -265,5 +260,62 @@ def deleteStudentPage():
         #Other: Return to main menu
         else:
             return
+    except:
+        return
+
+def scorePage():
+
+    #Selection Page
+    try:
+        printPage("StudentScore.txt")
+        choice = int(input("Make a selection: "))
+
+        #1. Display Student Score by Name
+        if choice == 1:
+            try:
+                name = input("Enter student name to display scores: ")
+                if nameExists(name):
+                    showScore(name)
+                else:
+                    print("No record found")
+            except:
+                print("No record found")
+
+    #2. Update Student Score by ID
+        elif choice == 2:
+
+            #Makes sure the ID is a valid input
+            validID = False
+            try:
+                #ID to see which student grade should be changed
+                ID = int(input("Enter student ID to update scores: "))
+                validID = True
+
+            except:
+                print("No record found")
+
+            #Only searches for ID if error was not thrown
+            if validID == True:
+                
+                #ID Exists
+                if IDExists(ID):
+
+                    #Makes sure the course and grade inputs are valid
+                    try:
+                        course = input("Enter course to update score: ")
+                        grade = int(input(f"Enter the new score for {course}: "))
+                        modifyScore(ID, course, grade)
+
+                    except:
+                        print("Course either does not exist, or grade is invalid")
+                        
+            #ID does not exist
+            else:
+                print("No record found")
+                
+        #Other: Return to main menu
+        else:
+            return
+                        
     except:
         return
