@@ -8,6 +8,33 @@ def printPage(filename):
     print(inputFile.read()) #Print the file text
     inputFile.close() #Close the connection
 
+#Start page for the student menu
+def startPage():
+    #If statement and while loop to keep the program running until they select the leave option and confirm
+    ex = False
+    while (ex != True):
+        printPage("WelcomeUser.txt")  # print the welcome text
+        choice = input(str("Please Enter the Operation Code: "))  # get the users choice
+        while (choice != "6"):
+            #if statements for each option and the function correlating to them
+            if (choice == "1"):
+                addStudentPage()
+            elif (choice == "2"):
+                showStudentPage()
+            elif (choice == "3"):
+                modifyStudentPrompt()
+            elif (choice == "4"):
+                deleteStudentPage()
+            elif (choice == "5"):
+                scorePage()
+            else:
+                print("Wrong input enter a valid number") #error message
+            printPage("WelcomeUser.txt") #Once the chosen function is done start the process again
+            choice = input(str("Please Enter the Operation Code: "))
+        leave = input(str("Do you want to return to previous menu? Enter Y to Confirm: "))
+        if (leave.upper() == "Y"):
+            ex = True
+
 #Add Student Page
 def addStudentPage():
     printPage("AddStudent.txt")
