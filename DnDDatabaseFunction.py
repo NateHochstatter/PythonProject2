@@ -40,11 +40,11 @@ def showCharacter(element, value):
 
     cursor = conn.cursor()
 
-    if element == "name":
+    if element == "charId":
         # Selects Character with a certain Id
         cursor.execute("SELECT * FROM Dnd WHERE charId = ?", (int(value),))
 
-    students = cursor.fetchall()
+    characters = cursor.fetchall()
 
     #Header
     printPage("DndRecord.txt")
