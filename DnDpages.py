@@ -122,7 +122,7 @@ def displayCharacterPage():
         Id = str(input("Please enter the student ID: ")) #Get the id
         printPage("CharacterRecord.txt") #print the record text
         if checkValID(Id): #if statements to ensure the id is both valid and existing
-            if IDExists(Id):
+            if CharIDExists(Id):
                 displayCharacter(Id) #call the displayCharacter function with the given id
             else:
                 print(f"\u274c The student Id {Id} does not exist") #error messages for if it is invalid or nonexistent
@@ -140,7 +140,7 @@ def modifyCharacterPage():
     # trying to modify something
     printPage("DndRecord.txt")
     if checkValID(Id):
-        if IDExists(Id):
+        if CharIDExists(Id):
             displayCharacter(Id)
         else:
             print(f"\u274c The character Id {Id} does not exist")

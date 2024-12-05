@@ -1,5 +1,5 @@
 import sqlite3
-
+from DnDpages import *
 def addCharacter(Stud_Id, Name, Class, Level, Race, Campaign):
     #Connects to the database
     with sqlite3.connect("Dnd.db") as conn:
@@ -93,3 +93,20 @@ def modifyCharacter(ID, element, value):
     # Commit changes and close the connection
     conn.commit()
     conn.close()
+
+def CharIDExists(ID):
+
+    #Connects to the database
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Search for Student with selected ID in the database
+        cursor.execute("SELECT * FROM Dnd WHERE characterId = ?", (ID,))
+        
+        characterId = cursor.fetchall()
+
+        #Determine if ID exists
+        if characterId:
+            return True #Does exist
+        else:
+            return False #Does not exist
