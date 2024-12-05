@@ -1,4 +1,5 @@
 from DnDDatabaseFunctions import *
+from DatabaseFunctions import exists
 from allChecks import *
 
 def printPage(filename):
