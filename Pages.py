@@ -354,7 +354,7 @@ def scorePage():
         if choice == 1:
             try:
                 name = input("Enter student name to display scores: ")
-                if nameExists(name):
+                if exists("name", name):
                     showScore(name)
                 else:
                     print("No record found")
