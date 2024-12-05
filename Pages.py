@@ -398,7 +398,7 @@ def scorePage():
                         
                 #ID does not exist
                 else:
-                p    rint("No record found")
+                    print("No record found")
                 
         #Other: Return to main menu
         else:
