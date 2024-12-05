@@ -35,50 +35,56 @@ def startPage():
 
 def addCharacterPage():
     printPage("AddCharacter.txt")
-    finalcheck = True
-    check = True
-    while check and finalcheck:
-        Id = str(input("Please enter the character ID: "))
-        if checkValID(Id):
-            if CharIDExists(Id):
-                print("\u274c Character ID already exists in the system. Please enter a different Id")
-                finalcheck = False
+    validItem = False 
+    while validItem == False:
+        try:
+            Id = str(input("Please enter the student ID: "))
+            if checkValID(Id) == True:
+                validItem = True
             else:
-                check = False
-        else:
-            print(f"\u274c Invalid Charcter ID")
+                print("Invalid student ID")
+        except:
+            print("Invalid student ID")
 
     Name = str(input("Please enter the Character Name: "))
 
-    check = True
-    while check and finalcheck:
-        Class = str(input("Please enter the Character Class: "))
-        if checkClass(Class):
-            check = False
-        else:
+    validItem = False
+    while validItem == False:
+        try:
+            Class = str(input("Please enter the Character Class: "))
+            if checkClass(Class) == True:
+                check = False
+            else:
+                print(f"\u274c Invalid Character Class")
+        except:
             print(f"\u274c Invalid Character Class")
 
-    check = True
-    while check and finalcheck:
-        Level = input(int("Please enter the Character Level: "))
-        if checkLevel(Level):
-            check = False
-        else:
-            print(f"\u274c Invalid Character Level")
+    validItem = False
+    while validItem == False:
+        try:
+            Level = input(int("Please enter the Character Level: "))
+            if checkLevel(Level) == True:
+                check = False
+            else:
+                print(f"\u274c Invalid Character Level")
+        except:
+            rint(f"\u274c Invalid Character Level")
 
-    check = True
-    while check and finalcheck:
-        Race = str(input("Please enter the Character Race: "))
-        if checkRace(Race):
-            check = False
-        else:
+    validItem = False
+    while validItem == False:
+        try:
+            Race = str(input("Please enter the Character Race: "))
+            if checkRace(Race) == True:
+                check = False
+            else:
+                print(f"\u274c Invalid Character Race")
+        except:
             print(f"\u274c Invalid Character Race")
 
     Campaign = str(input("Please enter the Campaign: "))
 
     if finalcheck:
         newCharacter = {
-            "CharID": CharId,
             "ID": Id,
             "Name": Name,
             "Class": Class,
