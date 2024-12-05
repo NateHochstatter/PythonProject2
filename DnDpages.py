@@ -8,6 +8,7 @@ def printPage(filename):
     print(inputFile.read()) #Print the file text
     inputFile.close()
 
+#function to act as the start page for the dnd stuff
 def startPageDnd():
     #If statement and while loop to keep the program running until they select the leave option and confirm
     ex = False
