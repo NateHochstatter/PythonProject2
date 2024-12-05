@@ -69,3 +69,25 @@ def deleteCharacter(characterId):
         #Deletes student information from the database
         cursor.execute("DELETE FROM Dnd WHERE characterId = ?", (characterId,))
         conn.commit()
+#Function for modifying a students elements
+def modifyCharacter(ID, element, value):
+    #Connects to database
+    conn = sqlite3.connect("Dnd.db")
+    cursor = conn.cursor()
+
+    #if statements to check what is being modified
+    if element == "Name":
+        # Inserts modified student information into the database
+        cursor.execute("UPDATE Dnd SET name = ? WHERE charId = ?", (value, int(ID)))
+    if element == "class":
+        cursor.execute("UPDATE Dnd SET class = ? WHERE charId = ?", (int(value), int(ID)))
+    if element == "level":
+        cursor.execute("UPDATE Dnd SET level = ? WHERE charId = ?", (int(value), int(ID)))
+    if element == "race":
+        cursor.execute("UPDATE Dnd SET race = ? WHERE charId = ?", (value, int(ID)))
+    if element == "campaign":
+        cursor.execute("UPDATE Dnd SET campaign = ? WHERE charId = ?", (value, int(ID)))
+
+    # Commit changes and close the connection
+    conn.commit()
+    conn.close()
