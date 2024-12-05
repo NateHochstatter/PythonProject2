@@ -385,14 +385,21 @@ def scorePage():
                 #ID Exists
                 if IDExists(ID):
 
-                    #Makes sure the course and grade inputs are valid
-                    try:
-                        course = input("Enter course to update score: ")
-                        grade = int(input(f"Enter the new score for {course}: "))
-                        modifyScore(ID, course, grade)
+                    #List of courses
+                    courses = ["CS_1030", "CS_1100", "CS_2030"]
 
-                    except:
-                        print("Course either does not exist, or grade is invalid")
+                    #Iterates through all courses
+                    for course in courses:
+                        #Only proceeds to the next course if the inputted grade is valid
+                        validGrade = False
+                        while validGrade == False:
+                            try:
+                                grade = int(input(f"Enter a new grade for {course}: "))
+                                modifyScore(ID, course, grade)
+                                validGrade = True
+
+                            except:
+                                print("Invalid grade")
                         
             #ID does not exist
             else:
