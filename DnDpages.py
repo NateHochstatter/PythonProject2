@@ -117,7 +117,7 @@ def deleteCharacterPage():
     except:
         return
 
-def displayCharacterPage():
+def showCharacter():
     Id = str(input("Please enter the student ID: ")) #Get the id
     printPage("CharacterRecord.txt") #print the record text
     if checkValID(Id): #if statements to ensure the id is both valid and existing
