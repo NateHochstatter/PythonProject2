@@ -383,7 +383,7 @@ def scorePage():
             if validID == True:
                 
                 #ID Exists
-                if IDExists(ID):
+                if exists("id", ID):
 
                     #List of courses
                     courses = ["CS_1030", "CS_1100", "CS_2030"]
@@ -401,9 +401,9 @@ def scorePage():
                             except:
                                 print("Invalid grade")
                         
-            #ID does not exist
-            else:
-                print("No record found")
+                #ID does not exist
+                else:
+                p    rint("No record found")
                 
         #Other: Return to main menu
         else:
