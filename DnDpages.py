@@ -193,5 +193,9 @@ def modifyCharacterPage():
             print("\u274c Record not modified")
         else:
             #otherwise call the function and say things went well
-            modifyCharacter(Id, newName, newClass, newLevel, newRace, newCampaign)
+            modifyCharacter(Id, "name", newName)
+            modifyCharacter(Id, "class", newClass)
+            modifyCharacter(Id, "level", newLevel)
+            modifyCharacter(Id, "race", newRace)
+            modifyCharacter(Id, "campaign", newCampaign)
             print("\u2714 Character record updated successfully")
