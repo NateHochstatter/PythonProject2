@@ -278,6 +278,7 @@ def modifyStudentPage(ID):
             else:
                 #Valid
                 validItem = True
+                modifyStudent(ID, "age", newAge)
         except:
             print("Invalid student age")
 
@@ -295,6 +296,7 @@ def modifyStudentPage(ID):
                 #Valid
                 validItem = True
                 newMajor = newMajor.upper()
+                modifyStudent(ID, "major", newMajor)
         except:
             print("Invalid student major")
 
@@ -311,10 +313,10 @@ def modifyStudentPage(ID):
             else:
                 #Valid
                 validItem = True
+                modifyStudent(ID, "phone", newPhone)
         except:
             print("Invalid phone number")
-
-    modifyStudent(ID, newAge, newMajor, newPhone)
+    
     print("Record modified successfully!")
 
 
