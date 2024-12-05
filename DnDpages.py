@@ -100,20 +100,21 @@ def deleteCharacterPage():
         #Prompt the user to enter a CharID to delete
         CharID = input("Please enter a Character ID to choose from: ")
 
-    #Checks to make sure that the ID exists
-        displayCharacter(IDInput)
-        #Verify that the user wants to delete the character
-        response = input("Are you sure you want to delete this character from the record? Y or N: ")
-            #Yes
-        if response.lower() == "y":
-            deleteCharacter(CharID)
-            print(f"Character {CharID} has been deleted")
-             #No
-        elif response.lower() == "n":
-                print(f"Character {CharID} has not been deleted")
-            #Invalid responses
-        else:
-            print("INVALID RESPONSE")
+        if(CharIDExists(CharID)):
+            #Checks to make sure that the ID exists
+            displayCharacter(CharID)
+            #Verify that the user wants to delete the character
+            response = input("Are you sure you want to delete this character from the record? Y or N: ")
+                #Yes
+            if response.lower() == "y":
+                deleteCharacter(CharID)
+                print(f"Character {CharID} has been deleted")
+                 #No
+            elif response.lower() == "n":
+                    print(f"Character {CharID} has not been deleted")
+                #Invalid responses
+            else:
+                print("INVALID RESPONSE")
     except:
         return
 
