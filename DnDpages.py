@@ -23,7 +23,7 @@ def startPage():
             elif (choice == "4"):
                 displayCharacterPage()
             elif (choice == "5"):
-                displayAllPage()
+                showAllCharacters()
             else:
                 print("Wrong input enter a valid number") #error message
             printPage("WelcomeDnD.txt") #Once the chosen function is done start the process again
