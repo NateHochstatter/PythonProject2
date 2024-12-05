@@ -4,11 +4,6 @@ from DatabaseFunctions import *
 from allChecks import *
 from DnDpages import *
 
-def printPage(filename):
-    inputFile = open(filename, 'r') #Get the file text
-    print(inputFile.read()) #Print the file text
-    inputFile.close() #Close the connection
-
 #function to start the login
 def loginStartPage():
 
