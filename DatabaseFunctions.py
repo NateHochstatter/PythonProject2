@@ -13,6 +13,10 @@ def exists(element, value):
         cursor.execute("SELECT * FROM Student WHERE phone = ?", (value,))
     if element == "name":
         cursor.execute("SELECT * FROM Student WHERE name = ?", (value,))
+    if element == "username":
+        cursor.execute("SELECT * FROM User WHERE username = ?", (value,))
+    if element == "password":
+        cursor.execute("SELECT * FROM User WHERE password = ?", (value,))
     if element == "id":
         cursor.execute("SELECT * FROM Student WHERE id = ?", (int(value),))
     if element == "scoreId":
