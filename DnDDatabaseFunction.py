@@ -59,3 +59,13 @@ def showCharacter(element, value):
             # Display the relevant student information
             print(f"{CharId:<5} {Id:<11} {Name:<16} {Class:<5} {Level:<8} {Race:<8} {Campaign:<15}")
     conn.close()
+
+def deleteCharacter(characterId):
+
+    #Connects to the database
+    with sqlite3.connect("Dnd.db") as conn:
+        cursor = conn.cursor()
+
+        #Deletes student information from the database
+        cursor.execute("DELETE FROM Dnd WHERE characterId = ?", (characterId,))
+        conn.commit()
