@@ -1,6 +1,7 @@
 #Pages for all of the database functions
 
 from DatabaseFunctions import *
+from DatabaseFunctions import exists
 from allChecks import *
 from DnDpages import *
 
@@ -17,7 +18,9 @@ def loginStartPage():
         elif choice == "2":
             registerPage()
         elif choice == "3":
-            check = False
+            leave = input(str("Do you want to return to previous menu? Enter Y to Confirm: "))
+            if (leave.upper() == "Y"):
+               check = False
 
 #function for the login page
 def loginPage():
@@ -323,7 +326,7 @@ def deleteStudentPage():
         #1. Delete students by name
         if choice == 1:
             name = input("Enter a student name to delete: ")
-            if nameExists(name):
+            if exists("name", name):
                 deleteStudentName(name)
                 print("Record deleted succesfully!")
             else:
@@ -332,7 +335,7 @@ def deleteStudentPage():
         #2. Delete student by ID
         elif choice == 2:
             ID = int(input("Enter a student ID to delete: "))
-            if IDExists(ID):
+            if exists("id", ID):
                 deleteStudentID(ID)
                 print("Record deleted successfully!")
             else:

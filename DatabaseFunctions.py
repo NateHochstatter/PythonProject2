@@ -162,25 +162,28 @@ def modifyStudent(ID, element, value):
 
 #Deletes Students by name
 def deleteStudentName(name):
+    # Connects to database
+    conn = sqlite3.connect("school.db")
+    cursor = conn.cursor()
 
-    #Connects to the database
-    with sqlite3.connect("school.db") as conn:
-        cursor = conn.cursor()
-
-        #Deletes student information from the database
-        cursor.execute("DELETE FROM Student WHERE name = ?", (name,))
-        conn.commit()
+    #Deletes student information from the database
+    cursor.execute("DELETE FROM Student WHERE name = ?", (name,))
+    conn.commit()
+    conn.close()
 
 #Deletes students by ID
 def deleteStudentID(ID):
+    # Connects to database
+    conn = sqlite3.connect("school.db")
+    cursor = conn.cursor()
 
-    #Connects to the database
-    with sqlite3.connect("school.db") as conn:
-        cursor= conn.cursor()
+    # Deletes student information from the database
+    cursor.execute("DELETE FROM Student WHERE id = ?", (int(ID),))
 
-        #Deletes student information from the database
-        cursor.execute("DELETE FROM Student WHERE id = ?", (ID,))
-        conn.commit()
+    # Commit changes and close the connection
+    conn.commit()
+    conn.close()
+
 
 #function for showing a students scores
 def showScore(name):
