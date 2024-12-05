@@ -76,7 +76,7 @@ def modifyCharacter(ID, element, value):
     cursor = conn.cursor()
 
     #if statements to check what is being modified
-    if element == "Name":
+    if element == "name":
         # Inserts modified student information into the database
         cursor.execute("UPDATE Dnd SET name = ? WHERE charId = ?", (value, int(ID)))
     if element == "class":
