@@ -1,6 +1,33 @@
 import sqlite3
 from Pages import *
 
+#Function to check if an element exists
+def exists(element, value):
+    conn = sqlite3.connect("school.db")
+
+    cursor = conn.cursor()
+
+    if element == "phone":
+        cursor.execute("SELECT * FROM Student WHERE phone = ?", (value,))
+    if element == "name":
+        cursor.execute("SELECT * FROM Student WHERE name = ?", (value,))
+    if element == "id":
+        cursor.execute("SELECT * FROM Student WHERE id = ?", (int(value),))
+    if element == "scoreId":
+        cursor.execute("SELECT * FROM Score WHERE id = ?", (int(value),))
+    if element == "scoreName":
+        cursor.execute("SELECT * FROM Score WHERE name = ?", (value,))
+    if element == "characterId":
+        cursor.execute("SELECT * FROM Dnd WHERE characterId = ?", (int(value),))
+    students = cursor.fetchall()
+
+    if students:
+        conn.close()
+        return True
+    else:
+        conn.close()
+        return False
+
 #Function for registering a new user
 def register(username, password):
     # Connects to the database
@@ -237,38 +264,4 @@ def studentsExist():
         else:
             return False #Does not exist
 
-def getAge(ID):
 
-    #Connects to the database
-    with sqlite3.connect("school.db") as conn:
-        cursor = conn.cursor()
-
-        #Find a students age based on their ID
-        cursor.execute("SELECT age FROM Student WHERE id = ?", (ID,))
-
-        age = cursor.fetchone()
-        return age
-
-def getMajor(ID):
-
-    #Connects to the database
-    with sqlite3.connect("school.db") as conn:
-        cursor = conn.cursor()
-
-        #Find a students major based on their ID
-        cursor.execute("SELECT major FROM Student WHERE id = ?", (ID,))
-
-        major = cursor.fetchone()
-        return major
-
-def getPhone(ID):
-
-    #Connects to the database
-    with sqlite3.connect("school.db") as conn:
-        cursor = conn.cursor()
-
-        #Find a student's phone number based on their ID
-        cursor.execute("SELECT phone FROM Student WHERE id = ?", (ID,))
-
-        phone = cursor.fetchone()
-        return phone

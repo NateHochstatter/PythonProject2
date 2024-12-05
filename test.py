@@ -1,5 +1,6 @@
 from DatabaseFunctions import *
 
+'''
 showAllStudents()
 addStudent("James Bond", 13, "M", "CS", "816-007-5454")
 showAllStudents()
@@ -12,7 +13,7 @@ showAllStudents()
 modifyStudent(700300001, "name", "John Snow")
 modifyStudent(700300003, "major", "CS")
 showAllStudents()
-deleteStudent(700300003)
+deleteStudentID(700300003)
 showAllStudents()
 showScore("Emily White")
 modifyScore(700300001, "CS_1030", 80)
@@ -25,3 +26,13 @@ print(login("Bob", "@YesWeCan4"))
 print(login("2", "fesfs"))
 register("2", "fesfs")
 print(login("2", "fesfs"))
+'''
+
+print(exists("id", 700300002))
+print(exists("id", 700300012))
+print(exists("name", "Emily White"))
+print(exists("name", "Emily Jones"))
+print(exists("phone", "816-111-1111"))
+print(exists("phone", "816-111-4311"))
+print(exists("characterId", 1))
+print(exists("characterId", 12))
