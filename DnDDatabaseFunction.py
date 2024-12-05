@@ -1,7 +1,6 @@
 import sqlite3
 
 def addCharacter(Stud_Id, Name, Class, Level, Race, Campaign):
-
     #Connects to the database
     with sqlite3.connect("Dnd.db") as conn:
         cursor = conn.cursor()
@@ -12,6 +11,7 @@ def addCharacter(Stud_Id, Name, Class, Level, Race, Campaign):
     conn.commit()
     conn.close()
 
+#print all created characters
 def showAllCharacters():
     with sqlite3.connect("Dnd.db") as conn:
         cursor = conn.cursor()
@@ -35,6 +35,7 @@ def showAllCharacters():
             print(f"{char_id:<10} {stud_id:<5} {name:<5} {clas:<5} {level:<5} {race:<5} {campaign:<5}")
         conn.close()
 
+#Print the character requested
 def showCharacter(element, value):
     #Connects to the database
     conn = sqlite3.connect("Dnd.db")
@@ -60,6 +61,7 @@ def showCharacter(element, value):
             print(f"{CharId:<5} {Id:<11} {Name:<16} {Class:<5} {Level:<8} {Race:<8} {Campaign:<15}")
     conn.close()
 
+#Delete requested character
 def deleteCharacter(characterId):
     #Connects to the database
     with sqlite3.connect("Dnd.db") as conn:
