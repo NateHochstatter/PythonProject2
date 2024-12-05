@@ -1,5 +1,5 @@
 from DnDDatabaseFunctions import *
-from DatabaseFunctions import exists
+from DatabaseFunctions import *
 from allChecks import *
 
 def printPage(filename):
@@ -105,7 +105,7 @@ def deleteCharacterPage():
         #Prompt the user to enter a CharID to delete
         CharID = input("Please enter a Character ID to choose from: ")
 
-        if(CharIDExists(CharID)):
+        if(exists("characterId" ,CharID)):
             #Checks to make sure that the ID exists
             displayCharacter(CharID)
             #Verify that the user wants to delete the character
@@ -128,7 +128,7 @@ def displayCharacterPage():
         Id = str(input("Please enter the student ID: ")) #Get the id
         printPage("CharacterRecord.txt") #print the record text
         if checkValID(Id): #if statements to ensure the id is both valid and existing
-            if CharIDExists(Id):
+            if exists("characterId" ,CharID):
                 displayCharacter(Id) #call the displayCharacter function with the given id
             else:
                 print(f"\u274c The student Id {Id} does not exist") #error messages for if it is invalid or nonexistent
@@ -146,7 +146,7 @@ def modifyCharacterPage():
     # trying to modify something
     printPage("DndRecord.txt")
     if checkValID(Id):
-        if CharIDExists(Id):
+        if exists("characterId" ,CharID):
             displayCharacter(Id)
         else:
             print(f"\u274c The character Id {Id} does not exist")
