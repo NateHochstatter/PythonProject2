@@ -2,6 +2,7 @@
 
 from DatabaseFunctions import *
 from allChecks import *
+from DnDpages import *
 
 def printPage(filename):
     inputFile = open(filename, 'r') #Get the file text
@@ -41,8 +42,12 @@ def loginPage():
     while check:
         password = str(input("Please enter your password: "))
         if login(username, password):
+            choice = str(input("Would you like to go the the Dnd or Student section (1 or 2): "))
+            if choice == "1":
+                startPageDnd()
+            elif choice == "2":
+                startPage()
             check = False
-            startPage()
         else:
             print(f"\u274c Login failed. Invalid password.")
 

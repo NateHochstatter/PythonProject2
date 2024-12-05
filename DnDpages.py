@@ -1,4 +1,4 @@
-from DnDDatabaseFunctions import *
+from DnDDatabaseFunction import *
 from DatabaseFunctions import *
 from allChecks import *
 
@@ -7,7 +7,7 @@ def printPage(filename):
     print(inputFile.read()) #Print the file text
     inputFile.close()
 
-def startPage():
+def startPageDnd():
     #If statement and while loop to keep the program running until they select the leave option and confirm
     ex = False
     while (ex != True):
