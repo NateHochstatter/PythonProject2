@@ -10,8 +10,10 @@ def startPage():
     #If statement and while loop to keep the program running until they select the leave option and confirm
     ex = False
     while (ex != True):
+        
         printPage("WelcomeDnD.txt")  # print the welcome text
         choice = input(str("Please Enter the Operation Code: "))  # get the users choice
+        
         while (choice != "6"):
             #if statements for each option and the function correlating to them
             if (choice == "1"):
@@ -26,8 +28,10 @@ def startPage():
                 showAllCharacters()
             else:
                 print("Wrong input enter a valid number") #error message
+            
             printPage("WelcomeDnD.txt") #Once the chosen function is done start the process again
             choice = input(str("Please Enter the Operation Code: "))
+        
         leave = input(str("Do you want to return to previous menu? Enter Y to Confirm: "))
         if (leave.upper() == "Y"):
             ex = True
