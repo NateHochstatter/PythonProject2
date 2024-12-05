@@ -46,7 +46,7 @@ def addCharacterPage():
             Id = str(input("Please enter the student ID: "))
             if checkValID(Id) == True:
                 if exists("id", Id)
-                validItem = True
+                    validItem = True
             else:
                 print("Invalid student ID")
         except:
