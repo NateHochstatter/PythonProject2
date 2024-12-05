@@ -6,7 +6,7 @@ def addCharacter(Stud_Id, Name, Class, Level, Race, Campaign):
     with sqlite3.connect("Dnd.db") as conn:
         cursor = conn.cursor()
 
-        #Inserts new student information into the database
+        #Inserts new character information into the database
         cursor.execute("INSERT INTO Dnd (Stud_Id, Name, Class, Level, Race, Campaign) VALUES (?, ?, ?, ?, ?, ?)",
                        (Stud_Id, Name, Class, Level, Race, Campaign))
     conn.commit()
@@ -25,13 +25,13 @@ def showAllCharacters():
         printPage("DndRecord.txt")
         print(f"{'CharId':<5} {'ID':<5} {'Name':<5} {'Class':<5} {'Level':<5} {'Race':<5} {'Campaign':<5}")
 
-        #Iterate through every student
+        #Iterate through every character
         for character in characters:
 
-            #Unpack student into multiple variables
+            #Unpack character into multiple variables
             char_id, stud, name, clas, level, race, campaign = character
 
-            #Display the relevant student information
+            #Display the relevant character information
             print(f"{char_id:<10} {stud_id:<5} {name:<5} {clas:<5} {level:<5} {race:<5} {campaign:<5}")
         conn.close()
 
