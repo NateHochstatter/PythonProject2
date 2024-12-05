@@ -141,8 +141,8 @@ def checkLevel(level):
 # function for checking the class
 def checkClass(classname):
     #if statement to check if the class is correct
-    if classname in ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue',
-                     'Sorcerer', 'Warlock', 'Wizard']:
+    if classname.lower() in ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue',
+                     'sorcerer', 'warlock', 'wizard']:
         return True
     else:
         return False
@@ -150,8 +150,8 @@ def checkClass(classname):
 # function for checking the race
 def checkRace(racename):
     #if statement to check if the race is correct
-    if racename in ['Human', 'Elf', 'Dwarf', 'Halfling', 'Dragonborn', 'Gnome', 'Tiefling', 'Orc', 'Half-Elf',
-                     'Half-Orc']:
+    if racename.lower() in ['human', 'elf', 'dwarf', 'halfling', 'dragonborn', 'gnome', 'tiefling', 'orc', 'half-elf',
+                     'half-orc']:
         return True
     else:
         return False
