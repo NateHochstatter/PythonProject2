@@ -184,3 +184,91 @@ def modifyScore(Id, element, value):
     # Commit changes and close the connection
     conn.commit()
     conn.close()
+
+def IDExists(ID):
+
+    #Connects to the database
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Search for Student with selected ID in the database
+        cursor.execute("SELECT * FROM Student WHERE id = ?", (ID,))
+        
+        studentID = cursor.fetchall()
+
+        #Determine if ID exists
+        if studentID:
+            return True #Does exist
+        else:
+            return False #Does not exist        
+
+def nameExists(name):
+
+    #Connects to the database
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Search for Student(s) with selected name in the database
+        cursor.execute("SELECT * FROM Student WHERE name = ?", (name,))
+
+        studentName = cursor.fetchone()
+
+        #Determine if name exists
+        if studentName:
+            return True #Does exist
+        else:
+            return False #Does not exist
+
+
+def studentsExist():
+
+    #Connects to the database
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Search for Students in the database
+        cursor.execute("SELECT * FROM Student")
+
+        student = cursor.fetchone()
+
+        #Determine if student exists
+        if student:
+            return True #Does exist
+        else:
+            return False #Does not exist
+
+def getAge(ID):
+
+    #Connects to the database
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Find a students age based on their ID
+        cursor.execute("SELECT age FROM Student WHERE id = ?", (ID,))
+
+        age = cursor.fetchone()
+        return age
+
+def getMajor(ID):
+
+    #Connects to the database
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Find a students major based on their ID
+        cursor.execute("SELECT major FROM Student WHERE id = ?", (ID,))
+
+        major = cursor.fetchone()
+        return major
+
+def getPhone(ID):
+
+    #Connects to the database
+    with sqlite3.connect("school.db") as conn:
+        cursor = conn.cursor()
+
+        #Find a student's phone number based on their ID
+        cursor.execute("SELECT phone FROM Student WHERE id = ?", (ID,))
+
+        phone = cursor.fetchone()
+        return phone
