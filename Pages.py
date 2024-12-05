@@ -3,6 +3,11 @@
 from DatabaseFunctions import *
 from allChecks import *
 
+def printPage(filename):
+    inputFile = open(filename, 'r') #Get the file text
+    print(inputFile.read()) #Print the file text
+    inputFile.close() #Close the connection
+
 #Start page for the student menu
 def startPage():
     #If statement and while loop to keep the program running until they select the leave option and confirm
