@@ -94,7 +94,7 @@ def modifyCharacter(ID, element, value):
     conn.commit()
     conn.close()
 
-def IDExists(ID):
+def CharIDExists(ID):
 
     #Connects to the database
     with sqlite3.connect("school.db") as conn:
