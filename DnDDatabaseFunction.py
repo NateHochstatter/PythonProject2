@@ -36,12 +36,12 @@ def showAllCharacters():
         conn.close()
 
 def showCharacter(element, value):
+    #Connects to the database
     conn = sqlite3.connect("Dnd.db")
-
     cursor = conn.cursor()
 
+    # Selects Character with a certain Id
     if element == "charId":
-        # Selects Character with a certain Id
         cursor.execute("SELECT * FROM Dnd WHERE charId = ?", (int(value),))
 
     characters = cursor.fetchall()
@@ -61,15 +61,15 @@ def showCharacter(element, value):
     conn.close()
 
 def deleteCharacter(characterId):
-
     #Connects to the database
     with sqlite3.connect("Dnd.db") as conn:
         cursor = conn.cursor()
 
-        #Deletes student information from the database
+        #Deletes character information from the database
         cursor.execute("DELETE FROM Dnd WHERE characterId = ?", (characterId,))
         conn.commit()
-#Function for modifying a students elements
+
+#Function for modifying a characters elements
 def modifyCharacter(ID, element, value):
     #Connects to database
     conn = sqlite3.connect("Dnd.db")
@@ -77,7 +77,7 @@ def modifyCharacter(ID, element, value):
 
     #if statements to check what is being modified
     if element == "name":
-        # Inserts modified student information into the database
+        # Inserts modified characters information into the database
         cursor.execute("UPDATE Dnd SET name = ? WHERE charId = ?", (value, int(ID)))
     if element == "class":
         cursor.execute("UPDATE Dnd SET class = ? WHERE charId = ?", (int(value), int(ID)))
