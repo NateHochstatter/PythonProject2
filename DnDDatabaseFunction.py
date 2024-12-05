@@ -1,5 +1,5 @@
 import sqlite3
-
+from DnDpages import *
 def addCharacter(Stud_Id, Name, Class, Level, Race, Campaign):
     #Connects to the database
     with sqlite3.connect("Dnd.db") as conn:
