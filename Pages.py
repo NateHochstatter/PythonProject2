@@ -269,7 +269,6 @@ def deleteStudentPage():
         return
 
 def scorePage():
-
     #Selection Page
     try:
         printPage("StudentScore.txt")
