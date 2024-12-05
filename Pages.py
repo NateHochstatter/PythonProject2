@@ -146,7 +146,7 @@ def showStudentPage():
                 name = input("Enter a student name: ")
 
                 if nameExists(name):
-                    showStudentName(name)
+                    showStudent("name", name)
                 else:
                     print("No student found")
             except:
@@ -158,7 +158,7 @@ def showStudentPage():
                 ID = input("Enter a student ID: ")
 
                 if IDExists(ID):
-                    showStudentID(ID)
+                    showStudent("id", ID)
                 else:
                     print("No student found")
             except:
