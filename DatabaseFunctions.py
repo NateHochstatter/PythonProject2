@@ -1,6 +1,11 @@
 import sqlite3
 from Pages import *
 
+def printPage(filename):
+    inputFile = open(filename, 'r') #Get the file text
+    print(inputFile.read()) #Print the file text
+    inputFile.close() #Close the connection
+    
 #Function to check if an element exists
 def exists(element, value):
 
