@@ -118,20 +118,24 @@ def deleteCharacterPage():
         return
 
 def displayCharacterPage():
-    Id = str(input("Please enter the student ID: ")) #Get the id
-    printPage("CharacterRecord.txt") #print the record text
-    if checkValID(Id): #if statements to ensure the id is both valid and existing
-        if IDExists(Id):
-            displayCharacter(Id) #call the displayCharacter function with the given id
+    try:
+        Id = str(input("Please enter the student ID: ")) #Get the id
+        printPage("CharacterRecord.txt") #print the record text
+        if checkValID(Id): #if statements to ensure the id is both valid and existing
+            if IDExists(Id):
+                displayCharacter(Id) #call the displayCharacter function with the given id
+            else:
+                print(f"\u274c The student Id {Id} does not exist") #error messages for if it is invalid or nonexistent
         else:
-            print(f"\u274c The student Id {Id} does not exist") #error messages for if it is invalid or nonexistent
-    else:
-        print(f"\u274c The student Id {Id} is not valid")
+            print(f"\u274c The student Id {Id} is not valid")
+            return
+    except:
+        return
 
 def modifyCharacterPage():
     #starts off by basically doing the displayCharacter function but with a key change of setting a
     # check to false if there is an issue
-    Id = str(input("Please enter the student ID: "))
+    Id = str(input("Please enter the Character ID: "))
     greatCheck = True #check for if there is an issue with the id which means it should stop
     # trying to modify something
     printPage("DndRecord.txt")
@@ -139,10 +143,10 @@ def modifyCharacterPage():
         if IDExists(Id):
             displayCharacter(Id)
         else:
-            print(f"\u274c The student Id {Id} does not exist")
+            print(f"\u274c The character Id {Id} does not exist")
             greatCheck = False
     else:
-        print(f"\u274c The student Id {Id} is not valid")
+        print(f"\u274c The character Id {Id} is not valid")
         greatCheck = False
 
     if greatCheck: #if there were no issues continue as normal
