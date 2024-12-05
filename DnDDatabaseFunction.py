@@ -80,15 +80,15 @@ def modifyCharacter(ID, element, value):
     #if statements to check what is being modified
     if element == "name":
         # Inserts modified characters information into the database
-        cursor.execute("UPDATE Dnd SET name = ? WHERE charId = ?", (value, int(ID)))
+        cursor.execute("UPDATE Dnd SET name = ? WHERE characterId = ?", (value, int(ID)))
     if element == "class":
-        cursor.execute("UPDATE Dnd SET class = ? WHERE charId = ?", (int(value), int(ID)))
+        cursor.execute("UPDATE Dnd SET class = ? WHERE characterId = ?", (int(value), int(ID)))
     if element == "level":
-        cursor.execute("UPDATE Dnd SET level = ? WHERE charId = ?", (int(value), int(ID)))
+        cursor.execute("UPDATE Dnd SET level = ? WHERE characterId = ?", (int(value), int(ID)))
     if element == "race":
-        cursor.execute("UPDATE Dnd SET race = ? WHERE charId = ?", (value, int(ID)))
+        cursor.execute("UPDATE Dnd SET race = ? WHERE characterId = ?", (value, int(ID)))
     if element == "campaign":
-        cursor.execute("UPDATE Dnd SET campaign = ? WHERE charId = ?", (value, int(ID)))
+        cursor.execute("UPDATE Dnd SET campaign = ? WHERE characterId = ?", (value, int(ID)))
 
     # Commit changes and close the connection
     conn.commit()
