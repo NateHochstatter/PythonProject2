@@ -145,7 +145,7 @@ def showStudentPage():
             try:
                 name = input("Enter a student name: ")
 
-                if nameExists(name):
+                if exists("name", name):
                     showStudent("name", name)
                 else:
                     print("No student found")
@@ -157,7 +157,7 @@ def showStudentPage():
             try:
                 ID = input("Enter a student ID: ")
 
-                if IDExists(ID):
+                if exists("id", ID):
                     showStudent("id", ID)
                 else:
                     print("No student found")
@@ -177,7 +177,7 @@ def modifyStudentPrompt():
     except:
         print("No record found")
 
-    if IDExists(ID) == True:
+    if exists("id", ID) == True:
         modifyStudentPage(ID)
     else:
         print("No record found")
