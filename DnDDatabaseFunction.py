@@ -101,7 +101,7 @@ def CharIDExists(ID):
         cursor = conn.cursor()
 
         #Search for Student with selected ID in the database
-        cursor.execute("SELECT * FROM Dnd WHERE characterId = ?", (ID,))
+        cursor.execute("SELECT * FROM Dnd WHERE characterId = ?", (int(ID),))
         
         characterId = cursor.fetchall()
 
