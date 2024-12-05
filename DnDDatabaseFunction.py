@@ -60,6 +60,32 @@ def showCharacter(element, value):
             print(f"{CharId:<5} {Id:<11} {Name:<16} {Class:<5} {Level:<8} {Race:<8} {Campaign:<15}")
     conn.close()
 
+
+#function to show all students
+def showAllCharacters():
+    conn = sqlite3.connect("Dnd.db")
+    cursor = conn.cursor()
+
+    #Selects all students
+    cursor.execute("SELECT * FROM Dnd")
+
+    characters = cursor.fetchall()
+
+    #Header
+    printPage("DndRecord.txt")
+    print(f"{'characterId':<11} {'studentId':<16} {'name':<5} {'class':<8} {'race':<8} {'level':<15} {'campaign':<15}")
+
+    #Iterate through every student
+    for character in characters:
+
+        #Unpack student into multiple variables
+        charId, studentId, name, clas, race, level, campaign = student
+
+        #Display the relevant student information
+        print(f"{charId:<11} {studentId:<16} {name:<5} {clas:<8} {race:<8} {level:<15} {campaign:<15}")
+    conn.close()
+
+
 def deleteCharacter(characterId):
 
     #Connects to the database
