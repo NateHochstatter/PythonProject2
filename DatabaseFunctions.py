@@ -219,41 +219,6 @@ def modifyScore(Id, element, value):
     conn.commit()
     conn.close()
 
-def IDExists(ID):
-
-    #Connects to the database
-    with sqlite3.connect("school.db") as conn:
-        cursor = conn.cursor()
-
-        #Search for Student with selected ID in the database
-        cursor.execute("SELECT * FROM Student WHERE id = ?", (ID,))
-        
-        studentID = cursor.fetchall()
-
-        #Determine if ID exists
-        if studentID:
-            return True #Does exist
-        else:
-            return False #Does not exist        
-
-def nameExists(name):
-
-    #Connects to the database
-    with sqlite3.connect("school.db") as conn:
-        cursor = conn.cursor()
-
-        #Search for Student(s) with selected name in the database
-        cursor.execute("SELECT * FROM Student WHERE name = ?", (name,))
-
-        studentName = cursor.fetchone()
-
-        #Determine if name exists
-        if studentName:
-            return True #Does exist
-        else:
-            return False #Does not exist
-
-
 def studentsExist():
 
     #Connects to the database

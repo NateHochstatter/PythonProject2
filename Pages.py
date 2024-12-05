@@ -278,6 +278,7 @@ def modifyStudentPage(ID):
             else:
                 #Valid
                 validItem = True
+                modifyStudent(ID, "age", newAge)
         except:
             print("Invalid student age")
 
@@ -295,6 +296,7 @@ def modifyStudentPage(ID):
                 #Valid
                 validItem = True
                 newMajor = newMajor.upper()
+                modifyStudent(ID, "major", newMajor)
         except:
             print("Invalid student major")
 
@@ -311,10 +313,10 @@ def modifyStudentPage(ID):
             else:
                 #Valid
                 validItem = True
+                modifyStudent(ID, "phone", newPhone)
         except:
             print("Invalid phone number")
-
-    modifyStudent(ID, newAge, newMajor, newPhone)
+    
     print("Record modified successfully!")
 
 
@@ -381,20 +383,27 @@ def scorePage():
             if validID == True:
                 
                 #ID Exists
-                if IDExists(ID):
+                if exists("id", ID):
 
-                    #Makes sure the course and grade inputs are valid
-                    try:
-                        course = input("Enter course to update score: ")
-                        grade = int(input(f"Enter the new score for {course}: "))
-                        modifyScore(ID, course, grade)
+                    #List of courses
+                    courses = ["CS_1030", "CS_1100", "CS_2030"]
 
-                    except:
-                        print("Course either does not exist, or grade is invalid")
+                    #Iterates through all courses
+                    for course in courses:
+                        #Only proceeds to the next course if the inputted grade is valid
+                        validGrade = False
+                        while validGrade == False:
+                            try:
+                                grade = int(input(f"Enter a new grade for {course}: "))
+                                modifyScore(ID, course, grade)
+                                validGrade = True
+
+                            except:
+                                print("Invalid grade")
                         
-            #ID does not exist
-            else:
-                print("No record found")
+                #ID does not exist
+                else:
+                p    rint("No record found")
                 
         #Other: Return to main menu
         else:
