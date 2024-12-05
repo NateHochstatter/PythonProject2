@@ -1,3 +1,4 @@
+from DatabaseFunctions import exists
 from DnDDatabaseFunction import *
 from DatabaseFunctions import *
 from allChecks import *
@@ -58,50 +59,33 @@ def addCharacterPage():
 
     validItem = False
     while validItem == False:
-        try:
-            Class = str(input("Please enter the Character Class: "))
-            if checkClass(Class) == True:
-                check = False
-            else:
-                print(f"\u274c Invalid Character Class")
-        except:
+        Class = str(input("Please enter the Character Class: "))
+        if checkClass(Class):
+            validItem = True
+        else:
             print(f"\u274c Invalid Character Class")
 
     validItem = False
     while validItem == False:
-        try:
-            Level = input(int("Please enter the Character Level: "))
-            if checkLevel(Level) == True:
-                check = False
-            else:
-                print(f"\u274c Invalid Character Level")
-        except:
-            rint(f"\u274c Invalid Character Level")
+        Level = str(input("Please enter the Character Level: "))
+        if checkLevel(Level):
+            validItem = True
+        else:
+            print(f"\u274c Invalid Character Level")
 
     validItem = False
     while validItem == False:
-        try:
-            Race = str(input("Please enter the Character Race: "))
-            if checkRace(Race) == True:
-                check = False
-            else:
-                print(f"\u274c Invalid Character Race")
-        except:
+        Race = str(input("Please enter the Character Race: "))
+        if checkRace(Race) == True:
+            validItem = True
+        else:
             print(f"\u274c Invalid Character Race")
 
     Campaign = str(input("Please enter the Campaign: "))
 
-    if finalcheck:
-        newCharacter = {
-            "ID": Id,
-            "Name": Name,
-            "Class": Class,
-            "Level": Level,
-            "Race": Race,
-            "Campaign": Campaign}
+    addCharacter(Id, Name, Class, Race, Level, Campaign)
+    print("\u2714 New Character record has been added")
 
-        addCharacter(newCharacter)
-        print("\u2714 New Character record has been added")
 
 def deleteCharacterPage():
     try:
@@ -110,7 +94,7 @@ def deleteCharacterPage():
 
         if(exists("characterId" ,CharID)):
             #Checks to make sure that the ID exists
-            displayCharacter(CharID)
+            showCharacter(CharID)
             #Verify that the user wants to delete the character
             response = input("Are you sure you want to delete this character from the record? Y or N: ")
                 #Yes
@@ -128,16 +112,11 @@ def deleteCharacterPage():
 
 def displayCharacterPage():
     try:
-        Id = str(input("Please enter the student ID: ")) #Get the id
-        printPage("CharacterRecord.txt") #print the record text
-        if checkValID(Id): #if statements to ensure the id is both valid and existing
-            if exists("characterId" ,CharID):
-                displayCharacter(Id) #call the displayCharacter function with the given id
-            else:
-                print(f"\u274c The student Id {Id} does not exist") #error messages for if it is invalid or nonexistent
+        Id = str(input("Please enter the character ID: ")) #Get the id
+        if exists("characterId", Id):
+            showCharacter(Id)  # call the showCharacter function with the given id
         else:
-            print(f"\u274c The student Id {Id} is not valid")
-            return
+            print(f"\u274c The character Id {Id} does not exist")  # error messages for if it is invalid or nonexistent
     except:
         return
 
@@ -146,69 +125,57 @@ def modifyCharacterPage():
     # check to false if there is an issue
     Id = str(input("Please enter the Character ID: "))
     greatCheck = True #check for if there is an issue with the id which means it should stop
-    # trying to modify something
-    printPage("DndRecord.txt")
-    if checkValID(Id):
-        if exists("characterId" ,CharID):
-            displayCharacter(Id)
-        else:
-            print(f"\u274c The character Id {Id} does not exist")
-            greatCheck = False
+    if exists("characterId", Id):
+        showCharacter(Id)
     else:
-        print(f"\u274c The character Id {Id} is not valid")
+        print(f"\u274c The character Id {Id} does not exist")
         greatCheck = False
 
     if greatCheck: #if there were no issues continue as normal
 
-        #A series of while loops that until a valid new data is given
-        check = True
-        while check:
-            newName = str(input("New Name: "))
-            if newName == "" or checkName(newName): #It is ok if the data is left empty or is just a valid name
-                check = False
-            else:
-                print(f"\u274c Invalid Character Name")
+        #If the name is left blank do nothing otherwise modify it
+        newName = str(input("New Name: "))
+        if newName != "":
+            modifyCharacter(Id, "name", newName)
 
+        # A series of while loops that until a valid new data is given
         check = True
         while check:
             newClass = str(input("New Class: "))
             if newClass == "" or checkClass(newClass):
                 check = False
+                if newClass != "":
+                    modifyCharacter(Id, "class", newClass)
             else:
                 print(f"\u274c Invalid Character Class")
+
+        check = True
+        while check:
+            newRace = str(input("New Race: "))
+            if newRace == "" or checkRace(newRace):
+                check = False
+                if newRace != "":
+                    modifyCharacter(Id, "race", newRace)
+            else:
+                print(f"\u274c Invalid Character Race")
 
         check = True
         while check:
             newLevel = str(input("New Level: "))
             if newLevel == "" or checkLevel(newLevel):
                 check = False
+                if newLevel != "":
+                    modifyCharacter(Id, "level", newLevel)
             else:
                 print(f"\u274c Invalid Character Level")
-        
-        check = True
-        while check:
-            newRace = str(input("New Race: "))
-            if newRace == "" or checkRace(newRace):
-                check = False
-            else:
-                print(f"\u274c Invalid Character Race")
 
-        check = True
-        while check:
-            newCampaign = str(input("New Campaign: "))
-            if newCampaign == "":
-                check = False
-            else:
-                print(f"\u274c Invalid Campaign")
+        newCampaign = str(input("New Campaign: "))
+        if newCampaign != "":
+            modifyCharacter(Id, "campaign", newCampaign)
 
-        if newName == "" and newClass == "" and newLevel == "" and newRace == "" and newCampaign == "": #If they left all the inputs empty
-            # send an error message
+        if newName == "" and newClass == "" and newLevel == "" and newRace == "" and newCampaign == "":
+            #If they left all the inputs empty send an error message
             print("\u274c Record not modified")
         else:
-            #otherwise call the function and say things went well
-            modifyCharacter(Id, "name", newName)
-            modifyCharacter(Id, "class", newClass)
-            modifyCharacter(Id, "level", newLevel)
-            modifyCharacter(Id, "race", newRace)
-            modifyCharacter(Id, "campaign", newCampaign)
+            #otherwise say things went well
             print("\u2714 Character record updated successfully")

@@ -1,0 +1,6 @@
+=============================Add Character=============================
+    1. The Id must start with 70030 and be in use
+    2. The class must be one of the standard Dnd classes
+    3. The race must be one of the following Human, Elf, Dwarf,
+        Halfling, Dragonborn, Gnome, Tiefling, Orc, Half-Elf, Half-Orc
+    4. The level must be between 1 and 20
