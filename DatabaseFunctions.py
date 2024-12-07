@@ -196,7 +196,7 @@ def showScore(name):
 
     # Header
     printPage("StudentRecord.txt")
-    print(f"{'ID':<8} {'Name':<15} {'CS_1030':<5} {'CS_1100':<5} {'CS_2030':<5}")
+    print(f"{'ID':<12} {'Name':<15} {'CS_1030':<9} {'CS_1100':<9} {'CS_2030':<9}")
 
     # Displays student scores
     students = cursor.fetchall()
@@ -205,7 +205,7 @@ def showScore(name):
         id, name, CS_1030, CS_1100, CS_2030 = student
 
         # Display the relevant student information
-        print(f"{id:<11} {name:<16} {CS_1030:<5} {CS_1100:<5} {CS_2030:<5}")
+        print(f"{id:<12} {name:<15} {CS_1030:<9} {CS_1100:<9} {CS_2030:<9}")
     conn.close()
 
 #Function for modifying a students scores
